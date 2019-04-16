@@ -16,18 +16,21 @@
           
         <div class="dropdown">
         <input type="checkbox" id="checkbox-toggle">
-          <label for="checkbox-toggle">Drivers</label>
+          <label class="nav-label" for="checkbox-toggle">Drivers</label>
             <ul class="dropdown-ul">
               <li class="dropdown-li"><%= link_to "List Drivers", drivers_path %></li>
               <li class="dropdown-li"><%= link_to "Add a Driver", new_driver_path %></li>
             </ul>
         </div>
-          
-          <li >
-              <%= link_to "List Passengers", passengers_path %>
-              <%= link_to "Add a Passenger", new_passenger_path %>
-          </li>
-        </ul>
+
+        <div class="dropdown">
+          <input type="checkbox" id="checkbox-toggle2">
+            <label class="nav-label" for="checkbox-toggle2">Passengers</label>
+              <ul class="dropdown-ul">
+                <li class="dropdown-li"><%= link_to "List Passengers", passengers_path %></li>
+                <li class="dropdown-li"><%= link_to "Add Passenger", new_passenger_path %></li>
+              </ul>
+        </div>
       </nav>
     </header>
 

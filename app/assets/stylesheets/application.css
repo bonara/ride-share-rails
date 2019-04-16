@@ -1,3 +1,20 @@
+body {
+  display: grid;
+  grid-template-rows: 5rem 20rem 2rem;
+}
+
+header {
+  grid-row: 1;
+}
+
+main {
+  grid-row: 2;
+}
+
+footer {
+  grid-row: 3;
+}
+
 .dropdown{
   position: relative;
   display: inline-block;
@@ -9,7 +26,7 @@ input[type=checkbox]{
   display: none;
 }
 
-label{
+.nav-label {
   box-sizing: border-box;
   display: inline-block;
   width: 100%;
@@ -21,7 +38,7 @@ label{
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
 }
 
-#drivers-dropdown {
+.dropdown-ul {
   position: absolute;
   list-style: none;
   text-align: left;
@@ -34,7 +51,7 @@ label{
   display: none;
 }
 
-.dropdown-list {
+.dropdown-li {
   padding: 15px;
   background-color: #fff;
   color: #4FB9A7;
@@ -42,12 +59,12 @@ label{
   cursor: pointer;
 }
 
-.dropdown-list:hover{
+.dropdown-li:hover{
   background-color: #4FB9A7;
   color: #FFF;
 }
 
-.dropdown-list {
+.dropdown-li {
   color: inherit;
   text-decoration: none;
 }
