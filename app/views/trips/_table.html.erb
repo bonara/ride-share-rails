@@ -1,0 +1,30 @@
+<section class="trip-list-wrapper">
+<h2>Trips</h2>
+<table >
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Date</th>
+      <th>Driver</th>
+      <th>Passenger</th>
+      <th>Price</th>
+      <th>Rating</th>
+      <th>Delete</th>
+      <th>Edit</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <% @passenger_trips.each do | trip| %>
+      <td><%= trip.id %></td>
+      <td><%= %></td>
+      <td><%= %></td>
+      <td><%= %></td>
+      <td><%= %></td>
+      <td><%= %></td>
+      <td><%= %></td>
+      <td><%= %></td>
+      <% end%>
+    </tr>
+
+  </tbody>
