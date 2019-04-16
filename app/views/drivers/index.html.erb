@@ -1,0 +1,13 @@
+<h1>Neber Rideshare</h1>
+
+<h3>Neber Drivers</h3>
+
+<ul>
+  <% @drivers.each do |driver|%>
+  <li>
+    <%= link_to driver.name, driver_path(driver) %>
+    <%= link_to "Edit", edit_driver_path(driver) %>
+    <%= link_to "Delete", driver_path(driver), method: :delete, data: { confirm: "Confirm deletion?" } %>
+  </li> 
+  <% end %>
+</ul>

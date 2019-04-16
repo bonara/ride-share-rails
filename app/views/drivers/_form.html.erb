@@ -1,0 +1,15 @@
+<%= form_with model:@driver, class: 'driver-form' do |f| %>
+
+<div>
+  <%= f.label :name, "Driver's name:"%>
+  <%= f.text_field :name, placeholder: "Jane Doe"%>
+</div>
+
+<div>
+  <%= f.label :vin, "VIN:" %>
+  <%= f.text_field :vin, placeholder: "xxxxxxxxxxxxxxxxx"%>
+</div>
+
+<%= f.submit button_text%>
+
+<% end %>
