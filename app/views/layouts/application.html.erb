@@ -12,14 +12,17 @@
   <body>
     <header>
       <nav>
-        <ul>
-          <li>
-            <%= link_to "Neber" %>
-          </li>
-          <li>
-              <%= link_to "List Drivers", drivers_path %>
-              <%= link_to "Add a Driver", new_driver_path %>
-          </li>
+        <div><%= link_to "Neber" %></div>
+          
+        <div class="dropdown">
+        <input type="checkbox" id="checkbox-toggle">
+          <label for="checkbox-toggle">Drivers</label>
+            <ul class="dropdown-ul">
+              <li class="dropdown-li"><%= link_to "List Drivers", drivers_path %></li>
+              <li class="dropdown-li"><%= link_to "Add a Driver", new_driver_path %></li>
+            </ul>
+        </div>
+          
           <li >
               <%= link_to "List Passengers", passengers_path %>
               <%= link_to "Add a Passenger", new_passenger_path %>
