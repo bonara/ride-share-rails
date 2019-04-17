@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root 'homepages#index'
   resources :drivers
   resources :passengers do
-    resources :trips, except: %i[create new]
+    resources :trips, only: %i[create new index]
   end
-  resources :trips, only: [:destroy]
+  resources :trips
 end
