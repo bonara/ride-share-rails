@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   end
   
   resources :passengers do
-    resources :trips, except: [:destroy]
+    resources :trips, except: %i[create new]
   end
   resources :trips, only: [:destroy]
 end
