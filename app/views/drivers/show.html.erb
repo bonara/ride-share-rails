@@ -1,3 +1,36 @@
 <h2>Driver's Details</h2>
-<p>Name: <%= @driver.name %> </p>
+<h3>Name: <%= @driver.name %> </h3>
 <p>VIN: <%= @driver.vin %></p>
+
+<button>Go Online</button>
+
+<h2>Driver's Trips</h2>
+
+<table >
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Date</th>
+      <th>Driver</th>
+      <th>Passenger</th>
+      <th>Price</th>
+      <th>Rating</th>
+      <th>Delete</th>
+      <th>Edit</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @driver_trips.each do |trip| %>
+      <tr>
+        <td><%= link_to trip.id, driver_path(trip.driver.id, trip.id) %></td>
+        <td><%= trip.date %></td>
+        <td><%= link_to trip.driver.name, driver_path(trip.driver.id) %></td>
+        <td><%= link_to trip.passenger.name, passenger_path(trip.passenger.id) %></td>
+        <td><%= trip.cost %></td>
+        <td><%= trip.rating %></td>
+        <td><%= link_to "Delete", trip_path(trip)%></td>
+        <td><%= link_to "Edit", edit_driver_path(trip.driver.id, trip.id)%></td> 
+      </tr>
+    <% end%>
+  </tbody>
+</table>
