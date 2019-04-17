@@ -1,6 +1,6 @@
 body {
   display: grid;
-  grid-template-rows: 5rem 20rem 2rem;
+  grid-template-rows: 5rem auto 2rem;
 }
 
 header {
@@ -13,6 +13,8 @@ main {
 
 footer {
   grid-row: 3;
+  display: block;
+  margin-top: 1rem;
 }
 
 .dropdown{
