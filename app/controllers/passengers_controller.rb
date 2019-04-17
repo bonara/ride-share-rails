@@ -12,7 +12,7 @@ class PassengersController < ApplicationController
 
     successful = @passenger.save
     if successful
-      redirect_to passenger_path(@passenger)
+      redirect_to passengers_path
     else
       render :new, status: :bad_request
     end
