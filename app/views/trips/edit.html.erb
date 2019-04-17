@@ -1,0 +1,29 @@
+<%= form_with model:@trip, class: 'trip-form' do |f| %>
+<h2> Editing Trip #: <%= @trip.id %> </h2>
+<div>
+  <%= f.label :date, "Date"%>
+  <%= f.text_field :date, placeholder: "Apr 12, 2019"%>
+</div>
+
+<div>
+  <%= f.label :cost, "Price" %>
+  <%= f.text_field :cost, placeholder: "50.00"%>
+</div>
+<div>
+  <%= f.label :rating, "Rating" %>
+  <%= f.text_field :rating, placeholder: "5"%>
+</div>
+
+<div>
+  <%= f.label :passenger_id, "Passenger" %>
+  <%= f.text_field :passenger_id, value: @trip.passenger.name %>
+</div>
+
+<div>
+  <%= f.label :driver_id, "Driver" %>
+  <%= f.select :driver_id, Driver.all.map{ |drv| [drv.name, drv.id] } %>
+</div>
+
+<%= f.submit "Update"%>
+
+<% end %>

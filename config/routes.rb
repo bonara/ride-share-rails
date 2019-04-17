@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
-  resources :drivers do
-    resources :trips
+  root 'homepages#index'
+  resources :drivers
+  resources :passengers do
+    resources :trips, except: [:destroy]
   end
-  resources :passengers
-  resources :trips
+  resources :trips, only: [:destroy]
 end

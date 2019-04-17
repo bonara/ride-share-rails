@@ -12,7 +12,7 @@ class PassengersController < ApplicationController
 
     successful = @passenger.save
     if successful
-      redirect_to passenger_path(@passenger)
+      redirect_to passengers_path
     else
       render :new, status: :bad_request
     end
@@ -22,14 +22,15 @@ class PassengersController < ApplicationController
     passenger_id = params[:id]
     @passenger = Passenger.find_by(id: passenger_id)
 
-    redirect_to passengers_path if @passenger.nil?
+    @passenger_trips = Passenger.find_by(id: passenger_id).trip
+    head :not_found unless @passenger
   end
 
   def edit
     passenger_id = params[:id]
     @passenger = Passenger.find_by(id: passenger_id)
 
-    redirect_to passengers_path if @passenger.nil?
+    head :not_found unless @passenger
   end
 
   def update
