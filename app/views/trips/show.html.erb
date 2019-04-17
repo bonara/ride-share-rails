@@ -23,7 +23,7 @@
       <td><%= @trip.cost %></td>
       <td><%= @trip.rating %></td>
       <td><%= link_to "Delete", trip_path(@trip.id)%></td>
-      <td><%= link_to "Edit", trip_path(@trip.id)%></td> 
+      <td><%= link_to "Edit", edit_trip_path(@trip.id)%></td> 
     </tr>
   </tbody>
 </table>
