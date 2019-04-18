@@ -3,20 +3,18 @@
 <h3>Neber Drivers</h3>
 
 <article class="drivers-list">
-  <div class="pagination">
-    <a href="#">«</a> 
-    <a href="#">1</a> 
-    <a href="#">2</a> 
-    <a href="#">3</a> 
-    <a href="#">»</a> 
-  </div>
-  <ul>
+  <table>
+    <tr>
+      <th>Name</th>
+      <th></th>
+      <th></th>
+    </tr>
     <% @drivers.each do |driver|%>
-    <li>
-      <%= link_to driver.name, driver_path(driver) %>
-      <%= link_to "Edit", edit_driver_path(driver) %>
-      <%= link_to "Delete", driver_path(driver), method: :delete, data: { confirm: "Confirm deletion?" } %>
-    </li> 
+      <tr>
+        <td><%= link_to driver.name, driver_path(driver) %></td>
+        <td><%= link_to "Edit", edit_driver_path(driver) %></td>
+        <td><%= link_to "Delete", driver_path(driver), method: :delete, data: { confirm: "Confirm deletion?" } %></td>
+      </tr>
     <% end %>
-  </ul>
+  </table>
 </article>  
