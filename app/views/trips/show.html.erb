@@ -1,7 +1,7 @@
 <h1>Trip#<%= @trip.id %> </h1>
 
-<table >
-  <thead>
+<table class="table table-striped">
+  <thead class="thead">
     <tr>
       <th>ID</th>
       <th>Date</th>
@@ -16,7 +16,7 @@
   <tbody>
   
     <tr>
-      <td><%= link_to @trip.id, trip_path(@trip.id) %></td>
+      <td ><%= link_to @trip.id, trip_path(@trip.id) %></td>
       <td><%= @trip.date %></td>
       <td><%= link_to @trip.driver.name, driver_path(@trip.driver.id)  %></td>
       <td><%= link_to @trip.passenger.name, passenger_path(@trip.passenger.id) %></td>
