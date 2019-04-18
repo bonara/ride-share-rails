@@ -21,7 +21,7 @@ class DriversController < ApplicationController
   def show
     driver_id = params[:id]
     @driver = Driver.find_by(id: driver_id)
-    @driver_trips = Trip.where(driver_id: driver_id)
+    @trips = Trip.where(driver_id: driver_id)
 
     unless @driver
       head :not_found

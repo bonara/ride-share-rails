@@ -1,16 +1,20 @@
 class Driver < ApplicationRecord
-  has_many :trip
+  has_many :trips
 
   validates :name, presence: true
   validates :vin, presence: true, length: { is: 14}
 
-  
-  @driver = Driver.find_by(id: @driver_id)
-  @driver_trips = Trip.where(driver_id: @driver_id)
-  
+#Details
+#The driver gets 80% of the trip cost after a fee of $1.65 is subtracted
+
+  def total_earnings
+    total = (self.trips.sum {|trip| trip.cost - 165 }) * 0.8
+    return "$#{(total /= 100).round(2)}"
+  end
   
   def avrg_rating
-    return total = (@driver_trips.sum {|trip| trip.rating})/@driver_trips.count
+    return total = (self.trips.sum { |trip| trip.rating}) / self.trips.count
   end
+
 end
 
