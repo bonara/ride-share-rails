@@ -4,8 +4,7 @@
 <p>Average rating: <%= @driver.avrg_rating %></p>
 <p>Total earnings: <%= @driver.total_earnings %></p>
 
-<button>Go Online</button>
-
+<button><%= link_to (@driver.available ? "Unavailable" : "Available"), available_path(@driver), method: :patch %></button>
 <h2>Driver's Trips</h2>
 
 <table >
