@@ -64,6 +64,19 @@ class TripsController < ApplicationController
     redirect_to trip_path
   end
 
+  def complete_trip
+    passenger_id = params[:id]
+    trip = Trip.find_by(passenger_id: passenger_id, rating: nil)
+    unless task
+      head :not_found
+      return
+    end
+
+    trip.update!(rating: params[:rating])
+
+    redirect_to passenger_path
+  end
+
   private
 
   def trip_params
