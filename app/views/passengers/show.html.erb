@@ -5,7 +5,7 @@
 <div>
 
 <% if @passenger.trip.last.rating == nil%>
-<%= form_with complete_trip_path(@passenger) method: :patch, class: 'trip-form' do |f| %>
+<%= form_with complete_trip_path(@passenger), method: :patch, class: 'trip-form' do |f| %>
 <div>
   <%= f.label :rating, "Rating" %>
   <%= f.number_field :rating, in: 1..5%>
