@@ -1,14 +1,12 @@
 class TripsController < ApplicationController
   def show
-    @passenger = Passenger.find(params[:passenger_id])
-    @trip = @passenger.trip.find(params[:id])
+    @trip = Trip.find(params[:id])
 
     head :not_found unless @trip
   end
 
   def edit
-    @passenger = Passenger.find(params[:passenger_id])
-    @trip = @passenger.trip.find(params[:id])
+    @trip = Trip.find(params[:id])
 
     head :not_found unless @trip
   end

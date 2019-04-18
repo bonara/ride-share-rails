@@ -21,10 +21,8 @@ class PassengersController < ApplicationController
   def show
     passenger_id = params[:id]
     @passenger = Passenger.find_by(id: passenger_id)
+    @passenger_trips = Trip.where(passenger_id: passenger_id)
     head :not_found unless @passenger
-    
-    @passenger_trips = Passenger.find_by(id: passenger_id).trip
-    
   end
 
   def edit

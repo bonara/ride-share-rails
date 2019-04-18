@@ -23,14 +23,14 @@
   <tbody>
     <% @driver_trips.each do |trip| %>
       <tr>
-        <td><%= link_to trip.id, driver_path(trip.driver.id, trip) %></td>
+        <td><%= link_to trip.id, trip_path(trip.id) %></td>
         <td><%= trip.date %></td>
         <td><%= link_to trip.driver.name, driver_path(trip.driver.id) %></td>
         <td><%= link_to trip.passenger.name, passenger_path(trip.passenger.id) %></td>
         <td><%= trip.cost %></td>
         <td><%= trip.rating %></td>
         <td><%= link_to "Delete", trip_path(trip)%></td>
-        <td><%= link_to "Edit", edit_driver_path(trip.driver.id, trip.id)%></td> 
+        <td><%= link_to "Edit", edit_trip_path(trip.id)%></td> 
       </tr>
     <% end%>
   </tbody>
