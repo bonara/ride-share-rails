@@ -2,10 +2,9 @@
 <p>Passenger name: <%= @passenger.name %> </p>
 <p>Passenger phone numer: <%= @passenger.phone_num %>
 
-<%= form_with action: "create" do |f| %>
-<%= f.submit "Request a trip"%>
-<% end %>
-
+<div>
+<button><%= link_to "Request a trip", passenger_trips_path(@passenger), method: :post %></button>
+</div>
 <h2>Trips</h2>
 
 <table >
