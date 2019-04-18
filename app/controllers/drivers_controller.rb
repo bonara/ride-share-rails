@@ -12,7 +12,7 @@ class DriversController < ApplicationController
 
     successful = @driver.save
     if successful
-      redirect_to driver_path(@driver)
+      redirect_to drivers_path
     else
       render :new, status: :bad_request
     end
@@ -21,7 +21,7 @@ class DriversController < ApplicationController
   def show
     driver_id = params[:id]
     @driver = Driver.find_by(id: driver_id)
-    @driver_trips = Trip.where(driver_id: driver_id)
+    @trips = Trip.where(driver_id: driver_id)
 
     unless @driver
       head :not_found
@@ -38,15 +38,16 @@ class DriversController < ApplicationController
   end
 
   def update
-    driver = Driver.find_by(id: params[:id])
+    driver_id = params[:id]
+    @driver = Driver.find_by(id: driver_id)
 
-    unless driver
+    unless @driver
       head :not_found
       return
     end
 
-    if driver.update(driver_params)
-      redirect_to driver_path(driver)
+    if @driver.update(driver_params)
+      redirect_to driver_path(@driver)
     else
       render :edit, status: :bad_request
     end

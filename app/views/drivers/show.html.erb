@@ -1,6 +1,8 @@
 <h2>Driver's Details</h2>
 <h3>Name: <%= @driver.name %> </h3>
 <p>VIN: <%= @driver.vin %></p>
+<p>Average rating: <%= @driver.avrg_rating %></p>
+<p>Total earnings: <%= @driver.total_earnings %></p>
 
 <button>Go Online</button>
 
@@ -20,13 +22,13 @@
     </tr>
   </thead>
   <tbody>
-    <% @driver_trips.each do |trip| %>
+    <% @trips.each do |trip| %>
       <tr>
         <td><%= link_to trip.id, trip_path(trip.id) %></td>
         <td><%= trip.date %></td>
         <td><%= link_to trip.driver.name, driver_path(trip.driver.id) %></td>
         <td><%= link_to trip.passenger.name, passenger_path(trip.passenger.id) %></td>
-        <td><%= trip.cost %></td>
+        <td><%= (trip.cost)/100 %></td>
         <td><%= trip.rating %></td>
         <td><%= link_to "Delete", trip_path(trip)%></td>
         <td><%= link_to "Edit", edit_trip_path(trip.id)%></td> 
