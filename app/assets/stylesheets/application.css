@@ -4,6 +4,10 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
+th, td {
+  padding: 10px;
+}
+
 header {
   grid-row: 1;
 }
