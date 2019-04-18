@@ -2,6 +2,9 @@
 <p>Passenger name: <%= @passenger.name %> </p>
 <p>Passenger phone numer: <%= @passenger.phone_num %>
 
+<%= form_with action: "create" do |f| %>
+<%= f.submit "Request a trip"%>
+<% end %>
 
 <h2>Trips</h2>
 
@@ -19,7 +22,7 @@
     </tr>
   </thead>
   <tbody>
-  <% @passenger_trips.each do | trip| %>
+  <% @trips.each do | trip| %>
     <tr>
       <td><%= link_to trip.id, trip_path(trip.id) %></td>
       <td><%= trip.date %></td>
