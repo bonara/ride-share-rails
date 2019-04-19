@@ -4,16 +4,14 @@
 
 <div>
 
-<% if @passenger.trip.last.rating == nil%>
-  
+<% if @passenger.trip.last.try(:rating)%>
+  <button><%= link_to "Request a trip", passenger_trips_path(@passenger), method: :post %></button>
+<%else%>
   <%= form_with url: complete_trip_path(@passenger.id), method: :patch, class: 'trip-form' do |f| %>
     <%= f.label :rating, "Rating" %>
     <%= f.number_field :rating, in: 1..5%>
     <%= f.submit "Rate your trip"%>
   <% end %>
-  
-<%else%>
-  <button><%= link_to "Request a trip", passenger_trips_path(@passenger), method: :post %></button>
 
 <% end%>
 </div>
