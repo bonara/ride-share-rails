@@ -13,19 +13,23 @@ class TripsController < ApplicationController
 
   def create
     @passenger = Passenger.find_by(id: params[:passenger_id])
-    @trip = Trip.new(
-      passenger_id: @passenger.id,
-      driver_id: Driver.where(:available == true).ids.sample,
-      date: Date.current,
-      rating: nil,
-      cost: (rand(9..100) * 100)
-    )
-    if @trip.driver_id.nil?
-      flash[:alert] = 'There are no available drivers.'
-      redirect_to passanger_path
-    else
-      @trip.save
-      redirect_to trip_path(@trip)
+
+    unless @passenger.nil?
+
+      @trip = Trip.new(
+        passenger_id: @passenger.id,
+        driver_id: Driver.where(:available == true).ids.sample,
+        date: Date.current,
+        rating: nil,
+        cost: (rand(9..100) * 100)
+      )
+      if @trip.driver_id.nil?
+        flash[:alert] = 'There are no available drivers.'
+        redirect_to passenger_path
+      else
+        @trip.save
+        redirect_to trip_path(@trip)
+      end
     end
   end
 

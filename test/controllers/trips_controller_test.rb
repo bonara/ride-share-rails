@@ -1,20 +1,14 @@
 require "test_helper"
 
 describe TripsController do
-  describe "show" do
-    # Your tests go here
-  end
-
-  describe "edit" do
-    
-  end
-
-  describe "update" do
-    # Your tests go here
-  end
 
   describe "create" do
-    # Your tests go here
+    
+    it 'creates a new trip' do
+      expect {
+        post passenger_trips_path(passenger_id: Passenger.first)
+      }.must_change 'Trip.count', +1
+    end
   end
 
   describe "destroy" do
