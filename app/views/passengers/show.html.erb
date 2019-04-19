@@ -5,16 +5,18 @@
 <div>
 
 <% if @passenger.trip.last.rating == nil%>
-<%= form_with complete_trip_path(@passenger) method: :patch, class: 'trip-form' do |f| %>
-<div>
-  <%= f.label :rating, "Rating" %>
-  <%= f.number_field :rating, in: 1..5%>
-  <%= f.submit "Rate your trip"%>
-</div>
-<% end %>
-
+  <div>
+  <%= form_with complete_trip_path(@passenger) method: :patch, class: 'trip-form' do |f| %>
+  
+    <%= f.label :rating, "Rating" %>
+    <%= f.number_field :rating, in: 1..5%>
+    <%= f.submit "Rate your trip"%>
+  
+  <% end %>
+  </div>
 <%else%>
-<button><%= link_to "Request a trip", passenger_trips_path(@passenger), method: :post %></button>
+  <button><%= link_to "Request a trip", passenger_trips_path(@passenger), method: :post %></button>
+
 <% end%>
 </div>
 <h2>Trips</h2>
