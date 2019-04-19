@@ -2,16 +2,16 @@
 <h2> Editing Trip #: <%= @trip.id %> </h2>
 <div>
   <%= f.label :date, "Date"%>
-  <%= f.text_field :date, placeholder: "Apr 12, 2019"%>
+  <%= f.date_field :date, placeholder: "Apr 12, 2019"%>
 </div>
 
 <div>
   <%= f.label :cost, "Price" %>
-  <%= f.text_field :cost, placeholder: "50.00"%>
+  <%= f.number_field :cost, step: 0.5%>
 </div>
 <div>
   <%= f.label :rating, "Rating" %>
-  <%= f.text_field :rating, placeholder: "5"%>
+  <%= f.number_field :rating, in: 1..5 %>
 </div>
 
 <div>
