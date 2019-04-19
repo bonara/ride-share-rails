@@ -14,7 +14,6 @@ describe PassengersController do
     end
 
     it 'renders even if there are zero passengers' do
-      skip
       # Need to enable once destroy is working with foreign key
       # Arrange
       Passenger.destroy_all
