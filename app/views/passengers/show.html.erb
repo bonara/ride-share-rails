@@ -4,7 +4,7 @@
 
 <div>
 
-<% if @passenger.trip.last.try(:rating)%>
+<% if @passenger.trip.last.try(:rating) || @passenger.trip.count == 0%>
   <button><%= link_to "Request a trip", passenger_trips_path(@passenger), method: :post %></button>
 <%else%>
   <%= form_with url: complete_trip_path(@passenger.id), method: :patch, class: 'trip-form' do |f| %>
