@@ -15,7 +15,16 @@ class Driver < ApplicationRecord
   end
   
   def avrg_rating
-    return total = ((self.trips.sum { |trip| trip.rating if trip.rating != nil}) / self.trips.count).floor
+    unless self.trips.count == 0
+      total_rating = self.trips.map{|trip| 
+        unless trip.rating == nil
+          trip.rating
+        end }.compact.sum
+
+      avrg = total_rating/self.trips.count
+    end
+
+    return avrg
   end
 
 end
