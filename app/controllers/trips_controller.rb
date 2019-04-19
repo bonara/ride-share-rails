@@ -67,7 +67,7 @@ class TripsController < ApplicationController
   def complete_trip
     passenger_id = params[:id]
     trip = Trip.find_by(passenger_id: passenger_id, rating: nil)
-    unless task
+    unless trip
       head :not_found
       return
     end

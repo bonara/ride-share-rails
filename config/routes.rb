@@ -6,5 +6,5 @@ Rails.application.routes.draw do
     resources :trips, only: %i[create new index]
   end
   resources :trips
-  patch 'passengers/:id/complete_trip', to: 'trip#complete_trip', as: 'complete_trip'
+  patch 'passengers/:id/complete_trip', to: 'trips#complete_trip', as: 'complete_trip'
 end
