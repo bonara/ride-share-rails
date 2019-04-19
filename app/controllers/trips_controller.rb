@@ -54,14 +54,14 @@ class TripsController < ApplicationController
 
   def destroy
     trip_id = params[:id]
-    @trip = Trip.find_by(id: trip_id)
+    trip = Trip.find_by(id: trip_id)
 
     unless trip
       head :not_found
       return
     end
     trip.destroy
-    redirect_to trip_path
+    redirect_to root_path
   end
 
   def complete_trip

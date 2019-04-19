@@ -106,4 +106,11 @@ describe DriversController do
       must_respond_with :not_found
     end
   end
+
+  describe "available" do
+    it "checks driver status" do
+      driver = Driver.create!(name: 'Jane Doe', vin: 'xxx11111111111', available: true)
+      expect(driver.available).must_equal true
+    end
+  end
 end
